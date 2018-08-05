@@ -25,12 +25,13 @@ SECRET_KEY = '-au3&glnt&h(g^!s$rjjgh6szj=$(wxnelw2uiw+6^83+5ab^#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'testAdministrator',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +58,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            './templates'
+            './templates',
+            './static'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -132,10 +134,9 @@ CELERY_BROKER_URL = 'redis://redis:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379/0'
 
 STATIC_ROOT = './static/'
-MEDIA_ROOT = '/media/'
+MEDIA_ROOT = './media/'
 
-
-import os
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 LOGGING = {
     'version': 1,

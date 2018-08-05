@@ -6,6 +6,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
+      - /static:/static
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
@@ -17,6 +18,7 @@ services:
       - db
     volumes:
       - ./src:/src
+      - /static:/static
     expose:
       - "8000"
     links:
